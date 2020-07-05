@@ -1,0 +1,108 @@
+<%- include('../partials/header.ejs')  %> 
+<link rel="stylesheet" href="/stylesheets/loginform.css">
+
+<div class = 'form register'>
+    <h1> REGISTER  </h1>
+
+<form action="/user/register" method="post">
+ 
+
+    <div>
+        <label for="username"> User Name : 
+            <input type="text" name="username" placeholder="Username" required>
+            <% if (typeof(message) !== 'undefined') { %><% if (message.type == "username") { %><div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span><%= message.msg %></div> <% } %><% } %>
+        </label>
+    </div>
+    <div>
+        <label for="email"> E-Mail : 
+            <input type="email" name="email" placeholder="E-Mail" required>
+            <% if (typeof(message) !== 'undefined') { %><% if (message.type == "email") { %><div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span><%= message.msg %></div> <% } %><% } %>
+        </label>
+    </div>
+    <div>
+        <label for="Password"> Password : 
+            <input type="password" name="password" placeholder="Password" required>
+            <% if (typeof(message) !== 'undefined') { %><% if (message.type == "password") { %><div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span><%= message.msg %></div> <% } %><% } %>
+        </label>
+    </div>
+    <div>
+        <label for="Password"> Repeat Password : 
+            <input type="password" name="repeat_password" placeholder="Repeat Password" required>
+            <% if (typeof(message) !== 'undefined') { %><% if (message.type == "repeat_password") { %><div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span><%= message.msg %></div> <% } %><% } %>
+        </label>
+    </div>
+    <div>
+        <label for="year">Current Year : 
+            <select name="year" required>
+                <option value="" disabled selected>Current Year</option>
+                <option value="1">1st Year(B.Tech / B. Arch)</option>
+                <option value="2">2nd Year(B.Tech / B. Arch)</option>
+                <option value="3">3rd Year(B.Tech / B. Arch)</option>
+                <option value="4">4th Year(B.Tech / B. Arch)</option>
+                <option value="5">5th Year(B.Tech / B. Arch)</option>
+                <option value="6">1st Year(M.Tech)</option>
+                <option value="7">1st Year(M.Tech)</option>
+                <option value="8">P.H.D</option>
+            </select>
+        </label>
+        <label for="dept">Department : 
+            <select name="dept" required>
+                <option value="" disabled selected>Department</option>
+                <option value="cse">C.S.E</option>
+                <option value="ece">E.C.E</option>
+                <option value="eee">E.E.E</option>
+                <option value="me">MECH</option>
+                <option value="ice">ICE</option>
+                <option value="ce">CHEM</option>
+                <option value="pe">PROD</option>
+                <option value="ce">CIVIL</option>
+                <option value="mme">MME</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <button type="submit" class="confirmbtn">Register</button>
+    </div>
+
+
+</form>
+</div>
+
+<div class = 'form login'>
+    <h1>LOGIN</h1>
+    <% if (typeof(messageLog) !== 'undefined') { %><% if (messageLog.type == "cred") { %><div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span><%= messageLog.msg %></div> <% } %><% } %>
+    <% if (typeof(messageLog) !== 'undefined') { %><% if (messageLog.type == "auth") { %><div class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span><%= messageLog.msg %></div> <% } %><% } %>
+    <% if (typeof(messageLog) !== 'undefined') { %><% if (messageLog.type == "login") { %><div class="alert green"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span><%= messageLog.msg %></div> <% } %><% } %>
+    <form action="/user/login" method="post">
+
+        <div>
+            <label for="email"> E-Mail : 
+                <input type="email" name="email" placeholder="E-Mail" required>
+            </label>
+        </div>
+        <div>
+            <label for="Password"> Password : 
+                <input type="password" name="password" placeholder="Password" required>
+            </label>
+        </div>
+        <div>
+            <button type="submit" class="confirmbtn">Login</button>
+        </div>
+        
+    </form>
+</div>
+<script>
+    document.getElementById('navbar').remove();
+    let popup = document.querySelectorAll('span.popuptext');
+    popup.forEach(one => {
+        console.log(one);
+        console.log(one.innerHTML);
+        one.classList.add('show');
+        setTimeout(() => {
+            one.classList.remove('show');
+        }, 2000);
+    });
+    
+</script>
+
+<%- include('../partials/footer.ejs')  %> 

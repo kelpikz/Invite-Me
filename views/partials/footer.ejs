@@ -1,0 +1,18 @@
+</div>
+<script>
+    function resposiveNavbar() {
+    let x = document.getElementById("navbar");
+    if (x.className === "topnav") {  //slide down
+      document.getElementById('responsiveNavClose').style.display = 'block';
+      document.getElementById('responsiveNav').style.display = 'none';
+      x.className += " responsive";
+    } else {  //slide up
+      x.className = "topnav";
+      document.getElementById('responsiveNavClose').style.display = 'none';
+      document.getElementById('responsiveNav').style.display = 'block';
+    }
+  }
+</script>
+<script defer src="/scripts/notifications.js"></script>
+</body>
+</html>

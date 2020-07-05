@@ -1,0 +1,253 @@
+.content > div {
+  box-sizing: border-box;
+  background-color: #111;
+  width: 49%;
+  height: 40vw;
+}
+
+.greeting {
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 7vw;
+  font-size: 10vw;
+  font-family: greetingFont;
+  float: left;
+  margin-right: 0;
+}
+
+div.content {
+  margin: 0;
+  padding: 5px;
+}
+
+div.right-bar {
+  float : right;
+  color : white;
+  text-align: center;
+}
+
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+div.EventClock, div#bar2{
+  display: flex;
+  text-align: center;
+  position: relative;
+  font-family: sans-serif;
+  height: 50%;
+  padding-top: 50px;
+  box-sizing: border-box;
+}
+
+
+div.EventClock  a,div.EventClock h3{
+  font-size: 2vmax;
+  margin : 0px 5px;
+  display: block;
+}
+
+div.EventClock  a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+div.EventClock > .timer {
+  margin-top: 50px;
+  margin: auto;
+  clear: both;
+  width: fit-content;
+  max-width: 80%;
+  padding:5px 0 1px 0;
+  background-color: #ff4da6;
+  animation: glowbox 1s ease-in-out infinite alternate;
+}
+
+.clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	font-weight: 100;
+	text-align: center;
+  font-size: 2.5vmax;
+  float : none;
+  margin: 15px 10px;
+}
+
+.clockdiv > div{
+	padding: 10px;
+	border-radius: 3px;
+	background: #00BF96;
+	display: inline-block;
+}
+
+.clockdiv div > span{
+	padding: 10px 15px;
+	border-radius: 10px;
+	background: #00816A;
+	display: inline-block;
+}
+
+.smalltext{
+	padding-top: 5px;
+	font-size: 1.5vmax;
+}
+
+div#clockMover{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+}
+
+
+div#bar2 > div#invite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#newInvite {
+  text-decoration: none;
+  padding: 20px 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  animation: glowbox 1s ease-in-out infinite alternate;
+}
+
+i.nextL{
+  padding-left: 3vmax;
+  font-size: 3vmax;
+  float: left;
+  cursor: pointer;
+}
+i.nextR{
+  padding-right: 3vmax;
+  font-size: 3vmax;
+  float: right;
+  cursor: pointer;
+}
+
+
+form#searchInvite{
+  align-self: center;
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px 25px 30px 13px;
+  text-align: left;
+  animation: glowbox 1s ease-in-out infinite alternate;
+}
+
+
+form#searchInvite #inviteId {
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 30px;
+  width: 95%;
+  margin-bottom: 20px;
+  overflow-x: visible;
+}
+
+form#searchInvite > #submitSearch {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 15px;
+  font-size: 15px;
+  background-color: #69C4E0;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+@keyframes glowbox {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073, 0 0 25px #e60073, 0 0 30px #e60073, 0 0 35px #e60073;
+  }
+  to {
+    box-shadow: 0 0 10px #fff, 0 0 15px #ff4da6, 0 0 20px #ff4da6, 0 0 25px #ff4da6, 0 0 30px #ff4da6, 0 0 35px #ff4da6, 0 0 40px #ff4da6;
+  }
+}
+
+@font-face {
+  font-family: greetingFont;
+  src: url(../fonts/Authentic\ Script\ Rough.ttf);
+}
+
+
+@media only screen and (max-width: 1050px) {
+
+  .content > div {
+    width: 100%;
+    margin: auto;
+    height: 70vmax;
+  }
+  
+  .content > div:first-of-type {
+    height: 40vmax;
+    font-size: 7vmax;
+  }
+
+  #clockdiv {
+    font-size: 4vmax;
+  }
+
+  .smalltext {
+    font-size: 3vmax;
+  }
+
+  div.EventClock  h3{
+    font-size: 4vmax;
+  }
+
+  #newInvite {
+    font-size: 3vmax;
+    padding: 3vmax 3.6vmax;
+    max-width: 70%;
+    box-sizing: content-box;
+  }
+  i.nextL{
+    font-size: 4.5vmax;
+  }
+  i.nextR{
+    font-size: 4.5vmax;
+  }
+}
+@media only screen and (max-width: 500px) {
+
+  .content > div {
+    width: 100%;
+    margin: auto;
+    height: 80vmax;
+  }
+  
+  .content > div:first {
+    height: 50vmax;
+  }
+
+  #clockdiv {
+    font-size: 3.5vmax;
+  }
+
+  .smalltext {
+    font-size: 2.5vmax;
+  }
+
+  div.EventClock  h3{
+    font-size: 3vmax;
+  }
+
+}

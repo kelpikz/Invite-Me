@@ -1,0 +1,132 @@
+<%- include('../partials/header.ejs')  %> 
+<link rel="stylesheet" href="/stylesheets/invitation/show invitation.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+<p id='goBack' onclick="goBack()"><i class="fas fa-angle-double-left"></i> GO BACK</p>
+
+<p id="element" hidden><%= JSON.stringify(invite.elements) %> </p>
+<div id='page'>
+
+  <canvas
+  id="canvas"
+
+  style="margin: 0; display:inline ; border-radius: 20px;"
+  >
+  <!-- to make where the canvas element is visible -->
+  Your browser doesn't support canvas
+</canvas>
+
+  <div id="description">
+    <h2><%= invite.title %></h2>
+    <p><%= invite.description %></p>
+ 
+    <div id="details">
+      <p id="time"> <span>Date : </span> <span><%= invite.time.toDateString() %></span></p>
+      <p><span>Time : </span> <span><%= invite.time.toLocaleTimeString() %> to <%= invite.duration.toLocaleTimeString() %></span></p>
+      <p><span>Food : </span> <span><%= invite.food %></span></p>
+      <p><span>Host : </span> <span><%= invite.creator.username %></span></p>
+      <p><span>Deadline : </span> <span><%= invite.deadline.toLocaleString() %></span></p>
+      <p><span>People Limit : </span><span><%= invite.population %> / <%= invite.people %></span></p>
+    </div>
+    
+    
+  <% if (!invite.eventOver) { %>
+
+    
+    <% if ((invite.deadlineOver) && (!invite.happening)) { %>
+      <!-- *WHEN DEADLINE OVER -->
+      <div>
+        <h3 id="deadline">SORRY THE DEADLINE FOR ACCEPTING THE INVITE IS UP :-(</h3>
+      </div>
+      <% } else if (!invite.happening) { %>
+        
+        <!-- *FOR CREATOR -->
+        <% if (invite.isCreator) { %>
+          <div>
+            <div class="tooltip">        <!--! IF ITS THE HOST -->
+              <input type="text" value="<%= invite._id %>" id="urlCopyLink" disabled>
+              <button onclick="copyurlClick()" onmouseout="clipboard()">
+                <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+                <span><i class="fas fa-copy"></i></span>
+              </button>
+            </div>
+          </div>
+          <div id="accepteesList">
+            <span id="heading">Acceptee List : </span>
+            <div class="acceptesslist"> <span class="username"><strong>Name</strong></span><span class="year"><strong>Year</strong></span><span class="dept"><strong>Dept</strong></span></div>
+            <!-- *Displays data og all acceptees -->
+            <% invite.acceptees.forEach(acceptee => { %>
+              <div class="acceptesslist">
+                <span class="username"><%= acceptee.username %></span><span class="year"><%= acceptee.year %></span><span class="dept"><%= acceptee.dept %></span> 
+              </div>
+            <% }) %>
+          </div>
+        <% } else if(invite.isAcceptee) { %>
+          <!-- *FOR ACEPTEE -->
+          <div class="accept">
+            <h4><br> Welcome <%= invite.visitor %> !  <br> <br> You are a little soon. Do come Back Later!!</h4>
+          </div>
+          <div id="accepteesList">
+            <span id="heading">Acceptee List : </span>
+            <div class="acceptesslist"> <span class="username"><strong>Name</strong></span><span class="year"><strong>Year</strong></span><span class="dept"><strong>Dept</strong></span></div>
+            <!-- *Displays data og all acceptees -->
+            <% invite.acceptees.forEach(acceptee => { %>
+              <div class="acceptesslist">
+                <span class="username"><%= acceptee.username %></span><span class="year"><%= acceptee.year %></span><span class="dept"><%= acceptee.dept %></span> 
+              </div>
+            <% }) %>
+          </div>
+        <% } else if(!invite.populationLimitReached) { %>
+          <!-- *FOR VISITOR -->
+          <div class="response">
+            <button id="accept">Accept</button>
+            <button id="decline">Decline</button>
+          </div>
+          <% } else { %>
+           <h3>Sorry the event is full (┬┬﹏┬┬)(┬┬﹏┬┬)(┬┬﹏┬┬)</h3>
+           <h6>F in the chat please!!</h6>
+        <% } %>
+
+    <!-- *WHEN EVENT HAS NOT STARTED YET -->
+    <div id='countdown' data-time="<%= invite.time %> ">
+      <h4 id="days"><span>--</span> <br> Days</h4>
+      <h4 id="hours"><span>--</span> <br> Hrs</h4>
+      <h4 id="min"><span>--</span> <br> Min</h4>
+      <h4 id="sec"><span>--</span> <br> Sec</h4>
+    </div>
+    <% } else { %>  <!-- *WHEN EVENT IS HAPPENING -->
+      <% if ((invite.isCreator) || (invite.isAcceptee)) { %>
+        <h3>Enjoy Your Party</h3>
+      <% } %>
+    <% } %>
+
+  <% } else { %>
+    <!--* EVENT IS OVER -->
+    <h3>Event is over ಥ_ಥ</h3>
+    <% if ((invite.isCreator) || (invite.isAcceptee)) { %>
+      <div id="accepteesList">
+        <span id="heading">Attendee List : </span>
+        <div class="acceptesslist"> <span class="username"><strong>Name</strong></span><span class="year"><strong>Year</strong></span><span class="dept"><strong>Dept</strong></span></div>
+        <!-- *Displays data og all attendees -->
+        <% invite.attendees.forEach(attendee => { %>
+          <div class="acceptesslist">
+            <span class="username"><%= attendee.username %></span><span class="year"><%= attendee.year %></span><span class="dept"><%= attendee.dept %></span> 
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+
+  <% } %>
+  </div>
+
+
+<script src="/scripts/show invitation.js"></script>
+
+<script src="/scripts/NavBar LoggedIn.js"></script>
+
+<script>
+  document.querySelector('#navbar > #invitations').classList.add('active');
+</script>
+
+<%- include('../partials/footer.ejs')  %> 

@@ -1,0 +1,143 @@
+#heading{
+  align-items: center;
+}
+
+#heading {
+  width: fit-content;
+  margin: auto;
+}
+
+form#searchInvite{
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+form#searchInvite #inviteId {
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 30px;
+  width: 100%;
+  margin-bottom: 20px;
+  overflow-x: visible;
+}
+
+form#searchInvite > #submitSearch {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 15px;
+  font-size: 15px;
+  background-color: #69C4E0;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+#container {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  flex-wrap : wrap;
+  justify-content: center;
+}
+
+.invite {
+
+  width: 310px;
+  height: 500px;
+  margin: 50px 30px;
+  position: relative;
+  /* background-color: #3886A2; */
+  background-color: #777;
+  border-radius: 15px;
+  overflow: visible;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+;
+
+}
+div.invite > canvas.canvas {
+  width: 280px;
+  height: 280px;
+  position: absolute;
+  top: -30px;
+  left: 15px;
+  border-radius: 15px;
+  background-color: whitesmoke;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+
+div.invite > .description {
+  position: absolute;
+  top: 250px;
+  height: auto;
+  width: 90%;
+  margin: auto;
+  margin: 2% 5%;
+}
+
+div.invite > .description > h4 {
+  font-weight: 700;
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  height: auto;
+  font-size: 22px;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: aliceblue;
+}
+
+
+div.invite > .description > p {
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  color: aliceblue;
+  margin: auto;
+  text-align: center;
+}
+
+div.invite > .description > a {
+  width: 150px;
+  height: 30px;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  color: white;
+  text-align: center;
+  padding-top: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  text-decoration: none;
+}
+
+div.invite > .description > a:hover {
+  color: black;
+  cursor: pointer;
+  background-color: #69C4E0;
+}
+
+#font1 {
+  font-family: first;
+}
+#font2 {
+  font-family: second;
+}
+#font3 {
+  font-family: third;
+}
+#font4 {
+  font-family: fourth;
+}
+#font5 {
+  font-family: fifth;
+}
+#font6 {
+  font-family: sixth;
+}

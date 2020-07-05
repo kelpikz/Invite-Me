@@ -1,0 +1,101 @@
+<%- include('./partials/header.ejs')  %> 
+<link rel="stylesheet" href="/stylesheets/new invitation.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="left-menu">
+
+  <div class="tab">
+    <button class="tablinks" onclick="newContent(0)">Template</button>
+    <button class="tablinks" onclick="newContent(1)">Text</button>
+    <button class="tablinks" onclick="newContent(2)">Image</button>
+  </div>
+  
+  <div class="tabcontent">
+    <h3></h3>
+    <div class="option word">
+        <input type="text" id="word" class="optionbtn" placeholder="Enter the text here">
+    </div>
+    <div class="option word">
+      <button class="optionbtn" id='fontvalue'>Font
+        <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="option-content" id="font">
+          <p onclick="updated('font',1, 2)" class="fonts" id="font1">Font 1</p>
+          <p onclick="updated('font',2, 2)" class="fonts" id="font2">Font 2</p>
+          <p onclick="updated('font',3, 2)" class="fonts" id="font3">Font 3</p>
+          <p onclick="updated('font',4, 2)" class="fonts" id="font4">Font 4</p>
+          <p onclick="updated('font',5, 2)" class="fonts" id="font5">Font 5</p>
+          <p onclick="updated('font',6, 2)" class="fonts" id="font6">Font 6</p>
+    </div>
+  </div>
+
+  <div class="option template">
+    <div class="invite-template">
+      <div>
+        <img src="/images/templates/Movie Night Invitation.jpg" alt="" srcset="">
+        <p>MOVIE NIGHT</p>
+      </div>
+      <div>
+        <img src="/images/templates/Party Invitation.jpg" alt="" srcset="">
+        <p>PARTY</p>
+      </div>
+      <div>
+        <img src="/images/templates/Funeral Thank You Card.jpg" alt="" srcset="">
+        <p>FUNERAL SERVICE</p>
+      </div>
+      <div>
+        <img src="/images/templates/birthday.jpg" alt="" srcset="">
+        <p>BIRTHDAY PARTY</p>
+      </div>
+    
+    </div>
+  </div>
+
+  <div class="option word">
+
+      <input type="text" id="color" class="optionbtn" placeholder="Color">
+
+  </div>
+  <div class="option word">
+
+      <input type="number" id="size" class="optionbtn" style="width: 200%;" placeholder="Enter size (px)" value="10">
+
+  </div>
+  <div class="option image">
+
+      <input type="text" class="optionbtn" id='imagesrc' placeholder="Image Address">
+      <!-- </div> -->
+    </div>
+    <div class="option">
+      <div class="save" id="save">Save</div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  
+</div>
+  
+  
+  <canvas
+  id="canvas"
+  height="500px"
+  width="500px"
+  style="margin: 0; display:inline ; border: 1px solid black;"
+>
+  <!-- to make where the canvas element is visible -->
+  Your browser doesn't support canvas
+</canvas>
+
+<div class="right-menu">
+  <div class="vertical-menu">
+    <a href="#" class="active">Elements</a>
+
+  </div>
+</div>
+
+
+<script type="module" src="/scripts/script.js"></script>
+<script defer="defer" src="/scripts/dom.js"></script>
+
+</script>
+
+<%- include('./partials/footer.ejs')  %> 

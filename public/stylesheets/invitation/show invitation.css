@@ -1,0 +1,338 @@
+
+.content  {
+  background-color: #eee;
+  font-family: 'Roboto', sans-serif;
+  word-spacing: 2px;
+}
+
+#goBack {
+  width: fit-content;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: #69C4E0;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#canvas {
+  position: absolute;
+  background-color: whitesmoke;
+  top: 8%;
+  left:-8%;
+  padding: 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.30), 0 5px 4px rgba(0,0,0,0.22);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 83%;
+  width: 53%; 
+}
+
+#page {
+  background-color: rgba(105, 196, 224, 0.6);
+  width: 85%;
+  margin: auto;
+  height: 47vw;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  position: relative;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.50), 0 15px 12px rgba(0,0,0,0.42);
+}
+
+#description {
+  width: 55%;
+  height: 100%;
+  box-sizing: border-box;
+  /* position: absolute; */
+  float: right;
+  right: 0;
+  font-size: 1.15vw;
+  text-align: center;
+  padding: 1.2vw;
+  overflow-y: scroll;
+}
+
+#description > h2{
+  font-size: 2vw;
+  margin: 1vw 0 1vw 0;
+}
+
+#description > p {
+  line-height: 20px;
+  width: 80%;
+  margin: auto;
+}
+
+#details {
+  padding-top: 0.4vw;
+  width: 65%;
+  margin: auto;
+  margin-bottom: 1vw;
+  font-size: 1vw;
+}
+
+#details > p {
+  display: flex;
+  text-align: left;
+  padding-left: 1vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  padding: 5px 0 5px 0;
+}
+
+#details > p > span {
+  width: 58%;
+}
+
+#details > p > span:first-child{
+  padding-left: 20px;
+  width: 38%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+#details > p:last-child {
+  border: none;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  width: 85%;
+  border: 0.5px solid  rgba(0, 0, 0, 0.5);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: white;
+  
+}
+
+#urlCopyLink {
+  margin: 0;
+  box-sizing: border-box;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 90%;
+  font-size: 1.1vw;
+  border: none;
+}
+
+.tooltip button {
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  width: 8%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: fit-content;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 55%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip > button:last-child {
+  cursor: pointer;
+}
+
+#accepteesList{
+  display: flex;
+  width: 80%;
+  position: relative;
+  flex-wrap: wrap;
+  max-height: 10vmax;
+  height: fit-content;
+  overflow-x: hidden;
+  margin: auto;
+  margin-top: 1.5vmax;
+  border: 1px solid black;
+  justify-content: flex-start;
+}
+
+.acceptesslist {
+  width: 100%;
+  font-family: monospace;
+  font-size: 15px;
+  height: fit-content;
+  border-bottom: 0.5px solid black;
+  border-radius: 1px;
+  display: flex;
+  text-align: left;
+}
+
+.acceptesslist > span.username {
+  width: 70%;
+  border-radius: 0;
+  padding-left: 5%;
+  border-right: 1px solid black;
+}
+
+.acceptesslist > span.year {
+  width: 15%;
+  padding-left: 2%;
+  border-right: solid 1px;
+  border-radius: 0;
+}
+.acceptesslist > span.dept {
+  width: 15%;
+  padding-left: 2%;
+}
+
+#countdown {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin: auto;
+}
+
+#countdown > h4 {
+  margin-top: 1vw;
+  width: fit-content;
+  padding: 1vw;
+  margin-bottom: 0;
+}
+
+
+
+#font1 {
+  font-family: first;
+}
+#font2 {
+  font-family: second;
+}
+#font3 {
+  font-family: third;
+}
+#font4 {
+  font-family: fourth;
+}
+#font5 {
+  font-family: fifth;
+}
+#font6 {
+  font-family: sixth;
+}
+
+::-webkit-scrollbar {
+  width: 0.5px;  /* Remove scrollbar space */
+  background: rgba(0, 0, 0, 0);  /* Optional: just make scrollbar invisible */
+}
+
+.response {
+  margin-top: 10px;
+  border: none;
+}
+
+div.response > button{
+  border: none;
+  padding: 1vw;
+  width: 10vw;
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-size: 1.5vw;
+  color: black;
+}
+
+.response button:first-of-type{
+  margin-right: 3vw;
+  background-color: #33cc33;
+}
+.response button:first-of-type:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #00c700;
+}
+
+.response button:last-of-type{
+  background-color: #ff1a1a;
+}
+
+.response button:last-of-type:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #f80000;
+}
+
+h3#deadline {
+  color : orangered;
+  font-size: 1vw;
+}
+
+
+@media only screen and (max-width : 800px) {
+
+  #page {
+    height : 125vw;
+  }
+
+  #canvas {
+    height: 45%;
+    top: -8%;
+    left: 10%;
+    width: 80%;
+  }
+
+  #description {
+    top: 38%;
+    position: relative;
+    /* display: block; */
+    float: none;
+    width: 95%;
+    margin: auto;
+    font-size: 2vw;
+    height: 80vw;
+    overflow: scroll;
+  }
+  #description > h2 {
+    font-size: 3.7vw;
+  }
+  #description> p {
+    width: 82%;
+  }
+  #details * {
+    font-size: 1.7vw;
+  }
+  #urlCopyLink{
+    font-size: 1.5vw;
+  }
+  div.response > button {
+    border: none;
+    padding: 1.5vw;
+    width: 15vw;
+    font-size: 2.5vw;
+    color: black;
+  }
+
+  div.response :first-child {
+    margin-right: 7vw;
+  }
+
+  h3#deadline {
+    font-size: 2vw;
+  }
+}
+

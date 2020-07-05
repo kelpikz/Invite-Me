@@ -1,0 +1,237 @@
+<%- include('../partials/header.ejs')  %> 
+<link rel="stylesheet" href="/stylesheets/invitation/new invitation(1).css">
+<link rel="stylesheet" href="/stylesheets/invitation/new invitation(2).css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="container" id="invitept1">
+  <h1>Create a new invite</h1>
+
+  <form id="newInvite" action="javascript:void(0)">
+
+    <div>
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" placeholder="Name of the event..." required>
+
+    </div>
+
+    <div>
+      <label for="description">Description</label>
+      <textarea id="description" name="description" placeholder="Say a few words about the event" style="height:100px"></textarea>
+  
+    </div>
+    <div>
+      <label for="time">Time : </label>
+      <input type="datetime-local" min="<%- new Date().toISOString().slice(0, 16) %>" name="time" id="time">
+    </div>
+
+    <div>
+      <label for="food">Food : 
+        <select name="food" id="food" required>
+            <option value="" disabled selected>Food availability</option>
+            <option value="None">None</option>
+            <option value="Bring your own food">Bring your own food</option>
+            <option value="Only beverages">Only beverages</option>
+            <option value="Beverages and Snacks">Beverages and Snacks</option>
+            <option value="Veg food">Veg food</option>
+            <option value="Veg and Non-Veg">Veg and Non-Veg</option>
+        </select>
+    </label>
+    </div>
+    
+    <div>
+      <label for="duration">Duration : 
+        <select name="duration" id="duration" required>
+            <option value="" disabled selected>Duration</option>
+            <option value="30">30 Mins</option>
+            <option value="60">1 Hr</option>
+            <option value="90">1 Hrs 30 Mins</option>
+            <option value="120">2 Hrs</option>
+            <option value="150">2 Hrs 30 Mins</option>
+            <option value="180">3 Hrs</option>
+        </select>
+    </label>
+    </div>
+    
+    <div>
+      <label for="deadline">Deadline : <span style="color: #999; font-size: 15px;">To accept invitation</span>
+        <select name="deadline" id="deadline" required>
+            <option value="" disabled selected>Deadline</option>
+            <option value="30">30 Mins Before start Of Event</option>
+            <option value="60">1 Hr Before start Of Event</option>
+            <option value="120">2 Hr Before start Of Event</option>
+            <option value="180">3 Hr Before start Of Event</option>
+            <option value="240">4 Hr Before start Of Event</option>
+        </select>
+    </label>
+    </div>
+
+    <div>
+      <label for="people"> Max of People : <span id="people_output">hello</span>
+        <input type="range" name="people" id="people" min="2" max="50">
+      </label>
+    </div>
+
+    
+
+    <div>
+      <span>Private :</span>
+      <label class="switch">
+        <input type="checkbox" id='private'>
+        <span class="slider round" ></span>
+      </label>
+    </div>
+
+      <div class='privateClass'>
+        <label for="year">Year : 
+            <select name="year" id="year">
+                <option value="0" disabled selected>Current Year</option>
+                <option value="0">None</option>
+                <option value="1">1st Year(B.Tech / B. Arch)</option>
+                <option value="2">2nd Year(B.Tech / B. Arch)</option>
+                <option value="3">3rd Year(B.Tech / B. Arch)</option>
+                <option value="4">4th Year(B.Tech / B. Arch)</option>
+                <option value="5">5th Year(B.Tech / B. Arch)</option>
+                <option value="6">1st Year(M.Tech)</option>
+                <option value="7">2nd  Year(M.Tech)</option>
+                <option value="8">P.H.D</option>
+            </select>
+        </label>
+        <label for="dept">Department : 
+            <select name="dept" id="dept">
+                <option value="0" disabled selected>Department</option>
+                <option value="0">None</option>
+                <option value="cse">C.S.E</option>
+                <option value="ece">E.C.E</option>
+                <option value="eee">E.E.E</option>
+                <option value="me">MECH</option>
+                <option value="ice">ICE</option>
+                <option value="ce">CHEM</option>
+                <option value="pe">PROD</option>
+                <option value="ce">CIVIL</option>
+                <option value="mme">MME</option>
+            </select>
+        </label>
+    </div>
+
+    <div>
+      <input type="submit" value="Submit">
+    </div>
+
+  </form>
+</div>
+
+
+<div id="invitept2">
+  
+
+<h1>Create a poster for your Invite</h1>
+<div class="left-menu">
+
+  <div class="tab">
+    <button class="tablinks" onclick="newContent(0)">Template</button>
+    <button class="tablinks" onclick="newContent(1)">Text</button>
+    <button class="tablinks" onclick="newContent(2)">Image</button>
+  </div>
+  
+  <div class="tabcontent">
+    <h3></h3>
+    <div class="option word">
+        <input type="text" id="word" class="optionbtn" placeholder="Enter the text here">
+    </div>
+    <div class="option word">
+      <button class="optionbtn" id='fontvalue'>Font
+        <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="option-content" id="font">
+          <p onclick="updated('font',1, 2)" class="fonts" id="font1">Font 1</p>
+          <p onclick="updated('font',2, 2)" class="fonts" id="font2">Font 2</p>
+          <p onclick="updated('font',3, 2)" class="fonts" id="font3">Font 3</p>
+          <p onclick="updated('font',4, 2)" class="fonts" id="font4">Font 4</p>
+          <p onclick="updated('font',5, 2)" class="fonts" id="font5">Font 5</p>
+          <p onclick="updated('font',6, 2)" class="fonts" id="font6">Font 6</p>
+    </div>
+  </div>
+
+  <div class="option template">
+    <div class="invite-template">
+      <div>
+        <img src="/images/templates/Movie Night Invitation.jpg" alt="" srcset="">
+        <p>MOVIE NIGHT</p>
+      </div>
+      <div>
+        <img src="/images/templates/Party Invitation.jpg" alt="" srcset="">
+        <p>PARTY</p>
+      </div>
+      <div>
+        <img src="/images/templates/Funeral Thank You Card.jpg" alt="" srcset="">
+        <p>FUNERAL SERVICE</p>
+      </div>
+      <div>
+        <img src="/images/templates/birthday.jpg" alt="" srcset="">
+        <p>BIRTHDAY PARTY</p>
+      </div>
+    
+    </div>
+  </div>
+
+  <div class="option word">
+
+      <input type="text" id="color" class="optionbtn" placeholder="Color">
+
+  </div>
+  <div class="option word">
+
+      <input type="number" id="size" class="optionbtn" style="width: 200%;" placeholder="Enter size (px)" value="10">
+
+  </div>
+  <div class="option image">
+
+      <input type="text" class="optionbtn" id='imagesrc' placeholder="Image Address">
+      <!-- </div> -->
+    </div>
+    <div class="option">
+      <div class="save" id="save">Save</div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  
+</div>
+  
+  
+<div class="right-menu">
+  <div class="vertical-menu">
+    <a href="javascript:void(0)" class="active">Elements</a>
+
+  </div>
+</div>
+
+<canvas
+  id="canvas"
+  height="500px"
+  width="500px"
+  style="margin: 0; display:inline ; border-radius: 20px;"
+>
+<!-- to make where the canvas element is visible -->
+Your browser doesn't support canvas
+</canvas>
+
+<div class="finalButtons">
+  <a href="/instructions" target="_blank">Instructions</a>
+  <a href="javascript:void(0)" id="createInvite">Submit</a>   <!-- !post to the /instructions route -->
+</div>
+
+
+<script type="module" src="/scripts/new-script.js"></script>
+<script defer="defer" src="/scripts/new-dom.js"></script>
+
+</script>
+</div>
+
+<script src="/scripts/NavBar LoggedIn.js"></script>
+
+<script>
+  document.querySelector('#navbar > #new').classList.add('active');
+</script>
+
+<%- include('../partials/footer.ejs')  %> 

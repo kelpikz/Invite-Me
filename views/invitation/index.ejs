@@ -1,0 +1,52 @@
+<%- include('../partials/header.ejs')  %>
+
+<link rel="stylesheet" href="/stylesheets/invitation/invitation index.css">
+
+<h1 id="heading"><%= type %>  Page</h1>
+
+<% if (type === 'My Invitations') { %>
+  <form action="javscript:void(0)" id="searchInvite">
+    <label for="inviteId"> InviteID:
+      <input type="text" name="inviteId" id="inviteId" placeholder="Paste Your Invite Id Here">
+    </label>
+    <a id="submitSearch">Search </a>
+  </form>
+<% } %>
+
+<div id="container">
+  <% for( let i = 0; i < invitations.length; i++ ) { %>
+  <p class="elements" hidden> <%= JSON.stringify(invitations[i].elements) %></p>
+  <div class="invite"> 
+      <canvas class='canvas'> </canvas> 
+    <div class="description">
+      <h4 class="heading"><%= invitations[i].title %></h4>
+      <p class="info"><%= invitations[i].description %></p> 
+      <a href="./invitation/<%= invitations[i]._id %>">Know More</a>
+    </div> 
+  </div>
+
+  <% } %>
+
+
+</div>
+
+<script src="/scripts/index.js"></script>
+
+<script src="/scripts/NavBar LoggedIn.js"></script>
+
+<script>
+  let text = document.getElementById('heading').innerHTML;
+  text = text.split(' ')[1];
+
+  if (text === 'Invitations') {
+    document.querySelector('#navbar > #invitations').classList.add('active');
+  } else if(text === 'Events') {
+    document.querySelector('#navbar > #events').classList.add('active');
+  } else {
+    document.querySelector('#navbar > #attending').classList.add('active');
+  }
+
+</script>
+
+
+<%- include('../partials/footer.ejs')  %> 

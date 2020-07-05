@@ -1,28 +1,28 @@
 //*FUNCTION TO CHECK ELEMENT EDIT PROPERTY
-export function doubleClick(x,y,element) {
-  if(element.type == 'Image') if((x > (element.x1.dx+15)) && (x < (element.x2.dx-15)) && (y > (element.y1.dy+15)) && (y < (element.y2.dy-15))) element.edit = !element.edit;
-  if(element.type == 'Text') if((x > (element.x1.dx+5)) && (x < (element.x2.dx-5)) && (y > (element.y1.dy+5)) && (y < (element.y2.dy-5))) element.edit = !element.edit;
+export function doubleClick(x,y,element, w, h) {
+  if(element.type == 'Image') if((x/w > (element.x1.dx+(15/w))) && (x/w < (element.x2.dx-(15/w))) && (y/h > (element.y1.dy+(15/w))) && (y/h < (element.y2.dy-(15/w)))) element.edit = !element.edit;
+  if(element.type == 'Text') if((x/w > (element.x1.dx+(5/w))) && (x/w < (element.x2.dx-(5/w))) && (y/h > (element.y1.dy+(5/w))) && (y/h < (element.y2.dy-(5/w)))) element.edit = !element.edit;
   return;
 }
 
-//TODO ONLY WORKS FOR THE LAST ELEMENT OF THE LIST, NEED TO CORRECT IT.
+
 //*DETERMINING THE CURSOR
-export function mouseIcon(x, y, element) {
+export function mouseIcon(x, y, element, w, h) {
   if(element.type !=='Template') {
-    let icon = 'conetext-menu';
-  if(element.edit){  
-    if((y > (element.y1.dy-10)) && (y < (element.y1.dy+10)))  icon = 'row-resize';
-    if((y > (element.y2.dy-10)) && (y < (element.y2.dy+10)))  icon = 'row-resize';
-    if((x > (element.x1.dx-10)) && (x < (element.x1.dx+10)))  icon = 'col-resize';
-    if((x > (element.x2.dx-10)) && (x < (element.x2.dx+10)))  icon = 'col-resize';
+    let icon = 'context-menu';
+  if(element.edit){
+    if((y/h > (element.y1.dy-(10/w))) && (y/h < (element.y1.dy+(10/h))))  icon = 'row-resize';
+    if((y/h > (element.y2.dy-(10/w))) && (y/h < (element.y2.dy+(10/h))))  icon = 'row-resize';
+    if((x/w > (element.x1.dx-(10/w))) && (x/w < (element.x1.dx+(10/w))))  icon = 'col-resize';
+    if((x/w > (element.x2.dx-(10/w))) && (x/w < (element.x2.dx+(10/w))))  icon = 'col-resize';
+
+    if((x/w > (element.x1.dx-(10/w))) && (x/w < (element.x1.dx+(10/w))) && (y/h > (element.y2.dy-(10/h))) && (y/h < (element.y2.dy+(10/h))))  icon = 'ne-resize';
+    if((x/w > (element.x1.dx-(10/w))) && (x/w < (element.x1.dx+(10/w))) && (y/h > (element.y1.dy-(10/h))) && (y/h < (element.y1.dy+(10/h))))  icon = 'se-resize';
+    if((x/w > (element.x2.dx-(10/w))) && (x/w < (element.x2.dx+(10/w))) && (y/h > (element.y1.dy-(10/w))) && (y/h < (element.y1.dy+(10/w))))  icon = 'ne-resize';
+    if((x/w > (element.x2.dx-(10/w))) && (x/w < (element.x2.dx+(10/w))) && (y/h > (element.y2.dy-(10/w))) && (y/h < (element.y2.dy+(10/w))))  icon = 'se-resize';
     
-    if((x > (element.x1.dx-10)) && (x < (element.x1.dx+10)) && (y > (element.y2.dy-10)) && (y < (element.y2.dy+10)))  icon = 'ne-resize';
-    if((x > (element.x1.dx-10)) && (x < (element.x1.dx+10)) && (y > (element.y1.dy-10)) && (y < (element.y1.dy+10)))  icon = 'se-resize';
-    if((x > (element.x2.dx-10)) && (x < (element.x2.dx+10)) && (y > (element.y1.dy-10)) && (y < (element.y1.dy+10)))  icon = 'ne-resize';
-    if((x > (element.x2.dx-10)) && (x < (element.x2.dx+10)) && (y > (element.y2.dy-10)) && (y < (element.y2.dy+10)))  icon = 'se-resize';
-    
-    if((x > (element.x1.dx+15)) && (x < (element.x2.dx-15)) && (y > (element.y1.dy+15)) && (y < (element.y2.dy-15))) icon = 'move';
-    if((x < (element.x1.dx- 5)) || (x > (element.x2.dx+ 5)) || (y < (element.y1.dy- 5)) || (y > (element.y2.dy+ 5))) icon = 'context-menu';
+    if((x/w > (element.x1.dx+(15/w))) && (x/w < (element.x2.dx-(15/w))) && (y/h > (element.y1.dy+(15/h))) && (y/h < (element.y2.dy-(15/h)))) icon = 'move';
+    if((x/w < (element.x1.dx- (5/w))) || (x/w > (element.x2.dx+ (5/w))) || (y/h < (element.y1.dy- (5/h))) || (y/h > (element.y2.dy+ (5/h)))) icon = 'context-menu';
   }
   else  icon = 'context-menu';
   return icon;
@@ -36,37 +36,36 @@ export function mouseup(element) {
 }
 
 //*STARTS EDITING WEHEN MOUSE IT PRESSED
-export function mousedown(x, y, element) {
+export function mousedown(x, y, element, w, h) {
   if(element.type !=='Template') {
-    if((y > (element.y1.dy-10)) && (y < (element.y1.dy+10)))  element.y1.toggle = true;
-  if((y > (element.y2.dy-10)) && (y < (element.y2.dy+10)))  element.y2.toggle = true;
-  if((x > (element.x1.dx-10)) && (x < (element.x1.dx+10)))  element.x1.toggle = true;
-  if((x > (element.x2.dx-10)) && (x < (element.x2.dx+10)))  element.x2.toggle = true;
-  if((x > (element.x1.dx+15)) && (x < (element.x2.dx-15)) &&  (y > (element.y1.dy+15)) && (y < (element.y2.dy-15))) element.inside = true; element.insidex = x; element.insidey= y;
+    if((y/h > (element.y1.dy-(10/h))) && (y/h < (element.y1.dy+(10/h))))  element.y1.toggle = true;
+    if((y/h > (element.y2.dy-(10/h))) && (y/h < (element.y2.dy+(10/h))))  element.y2.toggle = true;
+    if((x/w > (element.x1.dx-(10/w))) && (x/w < (element.x1.dx+(10/w))))  element.x1.toggle = true;
+    if((x/w > (element.x2.dx-(10/w))) && (x/w < (element.x2.dx+(10/w))))  element.x2.toggle = true;
+    if((x/w > (element.x1.dx+(15/w))) && (x/w < (element.x2.dx-(15/w))) &&  (y/h > (element.y1.dy+(15/h))) && (y/h < (element.y2.dy-(15/h)))) element.inside = true; element.insidex = x/w; element.insidey= y/h;
   }return;
 }
 
 //*MOVING THE ELEMENT WHILE EDITING
-export function mousemove(x, y, element) {
+export function mousemove(x, y, element, w, h) {
   if(element.type !== 'Template') {
     if(element.edit)  {  
-    if(element.x1.toggle) element.x1.dx = x;
-    if(element.x2.toggle) element.x2.dx = x;
-    if(element.y1.toggle) element.y1.dy = y;
-    if(element.y2.toggle) element.y2.dy = y;
+    if(element.x1.toggle) element.x1.dx = x/w;
+    if(element.x2.toggle) element.x2.dx = x/w;
+    if(element.y1.toggle) element.y1.dy = y/h;
+    if(element.y2.toggle) element.y2.dy = y/h;
     if(element.inside){
-      element.x1.dx+=(x - element.insidex);
-      element.x2.dx+=(x - element.insidex);
-      element.y1.dy+=(y - element.insidey);
-      element.y2.dy+=(y - element.insidey);
-      element.insidex = x; element.insidey= y;
+      element.x1.dx+=(x/w - element.insidex);
+      element.x2.dx+=(x/w - element.insidex);
+      element.y1.dy+=(y/h - element.insidey);
+      element.y2.dy+=(y/h - element.insidey);
+      element.insidex = x/w; element.insidey= y/h;
     }
   } }return;
 }
 
 //* CREATES A MY ELEMENT
 export function createMenu(element) {
-  console.log(element);
   let menu = document.querySelector('.vertical-menu');
   let item = document.createElement('a');
   let node = document.createTextNode(element.type + ' ' + element.id);
@@ -119,11 +118,14 @@ export function invitePost(forms, elements) {
   obj.title = forms.elements[0].value;
   obj.description = forms.elements[1].value;
   obj.time = new Date(forms.elements[2].value);
-  obj.food = Number(forms.elements[3].value);
-  obj.duration = Number(forms.elements[4].value);
-  obj.deadline = Number(forms.elements[5].value);
+  obj.food = forms.elements[3].value;
+  obj.duration = new Date(obj.time);
+  obj.duration.setMinutes(obj.time.getMinutes() + Number(forms.elements[4].value));
+  obj.deadline = new Date(obj.time);
+  obj.deadline.setMinutes(obj.time.getMinutes() - Number(forms.elements[5].value));
   obj.people = Number(forms.elements[6].value);
   obj.private = {};
+  
   if(!forms.elements[7].checked) obj.private.private = false;
   else {
     obj.private.private = true;

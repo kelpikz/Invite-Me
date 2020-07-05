@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+.form {
+  float: left;
+  width: 48%;
+  margin: 1%;
+  padding: 16px;
+  box-sizing: border-box;
+  border: black 1px solid;
+  border-radius: 5px;
+  padding-top: 0;
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.confirmbtn {
+  font-size: large;
+  background-color: #ff990a;
+  animation-delay: 3s;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.confirmbtn:hover {
+  opacity: 1;
+}
+
+.alert {
+  padding: 5px;
+  background-color: rgba(244, 67, 54, 0.3);  /* Red */
+  color: #fd1100;
+  border: 1px #fd1100 solid;
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+
+div.green {
+  color: rgb(25, 146, 25);
+  border: 1px rgb(25, 146, 25) solid;
+  background-color: rgba(36, 187, 36,0.3);
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 1px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+@media only screen and (max-width: 700px) {
+
+  .form {
+    width: 80%;
+    margin:0 9%;
+  }
+  
+}

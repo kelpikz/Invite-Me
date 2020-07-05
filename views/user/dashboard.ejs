@@ -1,0 +1,101 @@
+<%- include('../partials/header.ejs')  %> 
+
+<link rel="stylesheet" href="/stylesheets/dashboard.css">
+
+<div class='greeting glow'>Greetings!! <br> <%= user.username %> </div>
+
+<div class ='right-bar'>
+  <!-- <h1>Lets Get Started !!!</h1>
+  <button>Create an Invite</button> -->
+
+<div class='EventClock'>
+  <div class="timer" id="myAttendingClock" hidden>   
+    <h3>Next Attending Event</h3>
+    <% if (attendingEvent._id) { %>
+      <div class="clockdiv" id="attending" data-time="<%= attendingEvent.time %>">
+        <div>
+          <span class="days"></span>
+          <div class="smalltext">Days</div>
+        </div>
+        <div>
+          <span class="hours"></span>
+          <div class="smalltext">Hrs</div>
+        </div>
+        <div>
+          <span class="minutes"></span>
+          <div class="smalltext">Min</div>
+        </div>
+        <div>
+          <span class="seconds"></span>
+          <div class="smalltext">Sec</div>
+        </div>
+      </div>
+      <a data-link="<%=attendingEvent._id%>"> <%= attendingEvent.title %></a>
+    <% } else { %>
+      <a style="padding-top: 5vw;"><%= attendingEvent.title %></a>
+    <% } %>
+     
+    </div>
+
+  <div class="timer" id="myEventClock">
+    <h3>Your Next Event</h3>
+    <% if (myEvent._id) { %>
+    <div class="clockdiv" id="event" data-time="<%= myEvent.time %>">
+      <div>
+        <span class="days"></span>
+        <div class="smalltext">Days</div>
+      </div>
+      <div>
+        <span class="hours"></span>
+        <div class="smalltext">Hrs</div>
+      </div>
+      <div>
+        <span class="minutes"></span>
+        <div class="smalltext">Min</div>
+      </div>
+      <div>
+        <span class="seconds"></span>
+        <div class="smalltext">Sec</div>
+      </div>
+    </div>
+    <a data-link="<%=myEvent._id%>"><%= myEvent.title %></a>
+    <% } else { %>
+      <a style="padding-top: 5vw;"><%= myEvent.title %></a>
+    <% } %>
+  </div>
+
+  <div id="clockMover">
+    <i class="fas fa-chevron-left nextL"></i>
+    <i class="fas fa-chevron-right nextR"></i>
+  </div>
+</div>
+
+  <div id='bar2'>
+    <div id="invite">
+      <a  id="newInvite">CREATE A NEW INVITE</a>
+    </div>
+    <form action="javscript:void(0)" hidden id="searchInvite">
+      <label for="inviteId"> InviteID:
+        <input type="text" name="inviteId" id="inviteId" placeholder="Paste Your Invite Id Here">
+      </label>
+      <a id="submitSearch">Search </a>
+    </form>
+    <div id="clockMover">
+      <i class="fas fa-chevron-left nextL"></i>
+      <i class="fas fa-chevron-right nextR"></i>
+    </div>
+  </div>
+  
+
+
+</div>
+
+<script src="/scripts/NavBar LoggedIn.js"></script>
+
+<script>
+  document.querySelector('#navbar > #home').classList.add('active');
+</script>
+
+<script src="/scripts/dashboard.js"></script>
+
+<%- include('../partials/footer.ejs')  %> 
