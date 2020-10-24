@@ -9,3 +9,5 @@
 ```bash
   npm install; npm start;
 ```
+
+# Go to [link](http://localhost:3000) and enjoy :-)
