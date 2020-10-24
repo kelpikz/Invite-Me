@@ -5,9 +5,9 @@
 ## 2. create a .env file
 - create a .env file with and create an S_EMAIL and S_PASSWORD attributes to test mailing feature or else you can comment out config/middlewares.js line-31 to remove the mail feature
 
-## run
+## 3. run
 ```bash
   npm install; npm start;
 ```
 
-# Go to [link](http://localhost:3000) and enjoy :-)
+## 4. Go to [link](http://localhost:3000) and enjoy :-)
